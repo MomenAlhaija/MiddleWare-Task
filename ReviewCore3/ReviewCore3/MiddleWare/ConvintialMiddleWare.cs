@@ -10,6 +10,7 @@ namespace ReviewCore3.MiddleWare
         {
             _requestDelegate = requestDelegate;
         }
+
         public async Task  Invoke(HttpContext context) {
             await context.Response.WriteAsync("Start My Convintial MiddleWare\n");
             await _requestDelegate(context);
