@@ -1,0 +1,94 @@
+﻿@model IEnumerable<BDO_Task_1.Models.Tasks>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-primary">Tasks</h2>
+<hr />
+<p>
+    @Html.ActionLink("Add Task", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back To Projects", "index", "Projects", null, new { @class = "btn btn-secondary" })
+</p>
+<table class="table table-responsive table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Task_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Task_Description)
+        </th>
+
+        @*<th>
+                @Html.DisplayNameFor(model => model.Start_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End_Data)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Projects.Project_Name)
+        </th>
+        <th>
+            Time Sheet
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task_Description)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Start_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End_Data)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Projects.Project_Name)
+            </td>
+            <th>
+                @if (User.IsInRole("Employee"))
+                {
+
+                    if (item.Task_Status== 1)
+                    {
+
+                        <p class="text-success">Done</p>
+                    }
+                    else
+                    {
+                        Html.ActionLink("Time Sheet", "Index", "Timesheets", new { id = item.Task_Id }, new { @class = "btn btn-info" });
+                    }
+
+                }
+                else
+                {
+                    if (item.Task_Status == 1)
+                    {
+
+                        <p class="text-success">Done</p>
+                    }
+                    else
+                    {
+                        <p class="text-secondary">Pending</p>
+                    }
+
+                }
+            </th>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Task_Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Task_Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

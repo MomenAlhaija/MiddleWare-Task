@@ -1,0 +1,45 @@
+﻿@model TaskBDO.Models.Tasks
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="text-danger text-center">Delete</h2>
+<hr />
+
+<br />
+<h2 class="text-danger text-center">@ViewBag.Error</h2>
+<br />
+<div>
+    <table class="dl-horizontal">
+        <tr>
+            <td class="col-1">
+                @Html.DisplayNameFor(model => model.Task_Name)
+
+            </td>
+            <td class="col-8">
+                @Html.DisplayFor(model => model.Task_Name)
+
+            </td>
+        </tr>
+        <tr>
+            <td class="col-1">
+                @Html.DisplayNameFor(model => model.Task_Description)
+            </td>
+            <td class="col-3">
+                @Html.DisplayFor(model => model.Task_Description)
+            </td>
+        </tr>
+    </table>
+    <br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+      @Html.ActionLink("Back to List", "Index", "Tasks", new { id = Model.Project_Id }, new { @class = "btn btn-primary" })
+
+</div>
+    }
+</div>

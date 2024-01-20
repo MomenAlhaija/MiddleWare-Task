@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+<a href="/Cats/Add">Add</a>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+    @foreach(Category cat in (IEnumerable<Category>)Model)
+    {
+        <tr>
+            <td>
+                @cat.Name
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBDO", "TaskBDO\TaskBDO.csproj", "{113ED190-5012-4D12-9B3C-F9A8FD74CFFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{113ED190-5012-4D12-9B3C-F9A8FD74CFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113ED190-5012-4D12-9B3C-F9A8FD74CFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113ED190-5012-4D12-9B3C-F9A8FD74CFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113ED190-5012-4D12-9B3C-F9A8FD74CFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B02AF314-8038-4088-8771-BE80A4F24176}
+	EndGlobalSection
+EndGlobal

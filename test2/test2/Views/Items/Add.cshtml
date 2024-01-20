@@ -1,0 +1,43 @@
+﻿@model test2.Models.item
+
+@{
+    ViewData["Title"] = "Add";
+}
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add New Item</h2>
+            <hr />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label >Name</label>
+
+
+        <input name="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+
+    </div>
+    <div class="mb-3">
+        <label>Price</label>
+
+        <input class="form-control" name="Price" />
+        <span asp-validation-for="price"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoryId"></label>
+        <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.SelectList">
+            
+       </select>
+       <span asp-validation-for="CategoryId"></span>
+    </div>
+    <button type="submit"  class="btn btn-success">Add</button>
+    <a asp-action="Index" asp-controller="items" class="btn btn-primary">Back To List</a>
+     
+</form>

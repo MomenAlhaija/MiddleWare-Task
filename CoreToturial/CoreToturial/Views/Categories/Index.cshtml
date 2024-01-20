@@ -1,0 +1,25 @@
+﻿@using  DataAccessLayer.Model;
+@model IEnumerable<Category>
+<!Doctype HtML>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>
+                Name
+                </th>
+                
+            </tr>
+            @foreach(var cat in Model){
+            <tr>
+                <td>
+                    @cat.Name
+                </td>
+            </tr>
+            }
+        </table>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Home";
+}
+<h1>Welcome To Home</h1>
+@foreach(var item in Model)
+{
+    <p>@item</p>
+}
+
+<p>@ViewBag.CurrentEnvironment</p>
+<environment include="Development">
+    <button>in Delevopment</button>
+</environment>
+<environment exclude="Development">
+    <button>Not in Development</button>
+</environment>

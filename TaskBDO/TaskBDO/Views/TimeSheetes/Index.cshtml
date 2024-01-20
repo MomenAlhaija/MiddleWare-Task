@@ -1,0 +1,21 @@
+﻿@model  TaskBDO.Models.TimeSheete
+
+<h2 class="text-center text-primary">Time sheet</h2>
+<hr />
+<form method="post" action="/TimeSheetes/Save" class="my-form">
+    <input type="hidden" name="TaskId" value="@Model.Task_Id" />
+    <input type="hidden" name="SheetId" value="@Model.Sheet_Id" />
+
+    <div class="form-group">
+        <label for="TaskName">Task Name</label>
+        <input type="text" class="form-control" for="@Model.Tasks.Task_Name" id="projectName" name="TaskName" value="@Model.Tasks.Task_Name" placeholder="Enter project name" required>
+    </div>
+    <div class="form-group">
+        <label for="NumberOfHours">Number Of Hours Worked</label>
+        <input type="text" class="form-control" for="@Model.Hours_Worked" name="NumberOfHours" placeholder="Enter project name" required>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Save">
+        @Html.ActionLink("Back To Tasks", "Index", "Tasks", new { id = Model.Tasks.Project_Id }, new { @class = "btn btn-primary" })
+    </div>
+</form>

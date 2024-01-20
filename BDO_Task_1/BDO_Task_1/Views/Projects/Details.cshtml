@@ -1,0 +1,42 @@
+﻿@model BDO_Task_1.Models.Projects
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Projects</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Project_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

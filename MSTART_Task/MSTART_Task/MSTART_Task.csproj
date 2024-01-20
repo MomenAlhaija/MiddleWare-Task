@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\css\css - Shortcut.lnk" />
+    <None Include="wwwroot\assets\css\tailwind.css" />
+    <None Include="wwwroot\assets\css\tailwind.output.css" />
+    <None Include="wwwroot\assets\img\create-account-office-dark.jpeg" />
+    <None Include="wwwroot\assets\img\create-account-office.jpeg" />
+    <None Include="wwwroot\assets\img\dashboard.png" />
+    <None Include="wwwroot\assets\img\forgot-password-office-dark.jpeg" />
+    <None Include="wwwroot\assets\img\forgot-password-office.jpeg" />
+    <None Include="wwwroot\assets\img\github.svg" />
+    <None Include="wwwroot\assets\img\login-office-dark.jpeg" />
+    <None Include="wwwroot\assets\img\login-office.jpeg" />
+    <None Include="wwwroot\assets\img\twitter.svg" />
+    <None Include="wwwroot\assets\js\charts-bars.js" />
+    <None Include="wwwroot\assets\js\charts-lines.js" />
+    <None Include="wwwroot\assets\js\charts-pie.js" />
+    <None Include="wwwroot\assets\js\focus-trap.js" />
+    <None Include="wwwroot\assets\js\init-alpine.js" />
+  </ItemGroup>
+
+</Project>

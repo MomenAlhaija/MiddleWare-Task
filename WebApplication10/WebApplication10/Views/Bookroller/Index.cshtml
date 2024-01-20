@@ -1,0 +1,25 @@
+﻿@using DAL.Model;
+@model IEnumerable<Book> 
+<!doctype HTML>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Autho
+                </td>
+            </tr>
+
+        }
+        </table>
+
+</body>
+</html>

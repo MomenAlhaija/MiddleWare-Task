@@ -1,0 +1,137 @@
+﻿@model IEnumerable<TaskBDO.Models.Tasks>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-primary">Tasks</h2>
+<hr />
+
+<p>
+    @if (!User.IsInRole("Employee"))
+    {
+        @Html.ActionLink("Add Task", "Create", null, new { @class = "btn btn-primary" })
+    }
+    @Html.ActionLink("Back To Projects", "index", "Projects", null, new { @class = "btn btn-secondary" })
+</p>
+
+    <table class="table table-responsive table-hover table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Task_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task_Description)
+            </th>
+            <th>
+                Number Of Hours
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.End_Data)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Projects.Project_Name)
+            </th>
+            <th>
+                Time Sheet
+            </th>
+         
+            @if (!User.IsInRole("Employee"))
+            {
+                <th>
+                    Employee Name
+                </th>
+
+
+                <th>
+                    Action
+                </th>
+            }
+            else
+            {
+                <th>
+
+                </th>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Task_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Task_Description)
+                </td>
+                <td>
+                    @item.Number_Hours
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Start_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End_Data)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projects.Project_Name)
+                </td>
+
+                <td>
+                    @if (User.IsInRole("Employee"))
+                    {
+
+                        if (item.Task_Status != 1)
+                        {
+
+                            <a class="btn btn-info" href="/TimeSheetes/Index/@item.Task_Id">Time sheets</a>
+
+
+                        }
+                        else
+                        {
+                            <p class="text-success">Done</p>
+
+                        }
+                    }
+                    else
+                    {
+                        if (item.Task_Status == 1)
+                        {
+
+                            <p class="text-success">Done</p>
+                        }
+                        else
+                        {
+                            <p class="text-secondary">Pending</p>
+                        }
+
+                    }
+                </td>
+
+                @if (!User.IsInRole("Employee") && item.Task_Status == 1)
+                {
+                    <td>
+                        @item.AspNetUsers.User_Name
+                    </td>
+                }
+                else
+                {
+            <td>
+                inprogress
+            </td>
+                }
+                @if (!User.IsInRole("Employee"))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Task_Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Task_Id }, new { @class = "btn btn-danger" })
+                    </td>
+                }
+            </tr>
+        }
+
+    </table>

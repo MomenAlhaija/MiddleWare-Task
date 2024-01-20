@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncBreakfast", "AsyncBreakfast\AsyncBreakfast.csproj", "{B417CFBE-DA59-4F4D-B0D9-EE88D00880DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B417CFBE-DA59-4F4D-B0D9-EE88D00880DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B417CFBE-DA59-4F4D-B0D9-EE88D00880DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B417CFBE-DA59-4F4D-B0D9-EE88D00880DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B417CFBE-DA59-4F4D-B0D9-EE88D00880DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BE07E85-FCA0-44C3-ADF8-43838AACEC1B}
+	EndGlobalSection
+EndGlobal

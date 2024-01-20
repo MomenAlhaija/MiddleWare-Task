@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TaskBDO.Models.Projects>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-primary">Projects</h2>
+<hr />
+@if (!User.IsInRole("Employee"))
+{
+   <p>
+       @Html.ActionLink("Add Project", "Create", null, new { @class = "btn btn-primary" })
+   </p>
+}
+
+<table class="table table-responsive table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number_Hours)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project_Description)
+        </th>
+        @if (User.IsInRole("Employee"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUsers.User_Name)
+            </th>
+        }
+        <th>
+            Hours Remain
+        </th>
+        <th>
+            Tasks
+        </th>
+        @if (!User.IsInRole("Employee"))
+         { 
+                <th>
+                    Action
+                </th>
+         }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number_Hours)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Description)
+            </td>
+            @if (User.IsInRole("Employee"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.User_Name)
+                </td>
+            }
+            @{ 
+                var db = new TaskBDO.Models.BDO_TaskEntities2();
+                var TaskHours = db.Tasks.Where(p => p.Project_Id == item.Project_Id).Sum(p=>p.Number_Hours);
+                var HoursRemain = item.Number_Hours - TaskHours;
+            }
+            <td>
+                @HoursRemain
+            </td>
+            <td>
+                <a href="/Tasks/Index/@item.Project_Id" class="btn btn-info">View All Tasks</a>
+            </td>
+            @if (!User.IsInRole("Employee"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Project_Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Project_Id }, new { @class = "btn btn-danger" })
+                </td>
+            }
+            </tr>
+    }
+
+</table>

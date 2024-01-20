@@ -1,0 +1,13 @@
+﻿@using ServiceContract;
+@using Services;
+@{
+    ViewBag.Title = "About";
+}
+@inject ICitiesService _citiesServices
+@{
+    List<string> cities = _citiesServices.GetCities();
+}
+<h2>About</h2>
+@foreach(string city in cities){
+    <p>@city</p>
+}

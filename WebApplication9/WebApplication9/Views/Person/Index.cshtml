@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Person> 
+<div class="d-flex justify-content-end">
+   <a class="btn btn-success" href="/Person/Create">Add Person</a>
+</div>
+<br />
+<table class="table table-striped table-hover ">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach(Person p in Model)
+    {
+        <tr>
+            <td>
+               @p.Id
+            </td>
+            <td>
+                @p.FirstName @p.LastName
+            </td>
+            <td>
+                @p.Age
+            </td>
+            <td>
+                @p.Email
+            </td>
+            <td>
+                @p.Phone
+            </td>
+            <td>
+               @p.Address
+            </td>
+            <td>
+                <a href="/Person/Edit/@p.Id" class="btn btn-secondary">Edit</a>
+                <a href="/Person/Delete/@p.Id" class="btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+    }
+</table>
